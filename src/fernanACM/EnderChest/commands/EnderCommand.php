@@ -31,7 +31,7 @@ use fernanACM\EnderChest\utils\PluginUtils;
 class EnderCommand extends BaseCommand{
     
     public function __construct(){
-        parent::__construct(Ender::getInstance(), "enderchest", "Open EnderChest by fernanACM", ["ender", "ec"]);
+        parent::__construct(Ender::getInstance(), "enderchest", "Open EnderChest by fernanACM", ["엔더", "엔더상자", "엔"]);
         $this->setPermission("enderchest.acm");
     }
 
