@@ -1,5 +1,5 @@
 <?php
-    
+
 #      _       ____   __  __ 
 #     / \     / ___| |  \/  |
 #    / _ \   | |     | |\/| |
@@ -7,7 +7,7 @@
 #  /_/   \_\  \____| |_|  |_|
 # The creator of this plugin was fernanACM.
 # https://github.com/fernanACM
- 
+
 namespace fernanACM\EnderChest\commands;
 
 use pocketmine\player\Player;
@@ -26,8 +26,8 @@ use CortexPE\Commando\IRunnable; // Add this import
 use fernanACM\EnderChest\Ender;
 use fernanACM\EnderChest\utils\PluginUtils;
 
-class EnderCommand extends BaseCommand implements IRunnable{ // Implement IRunnable
-    
+class EnderCommand extends BaseCommand{ // Implement IRunnable
+
     public function __construct(){
         parent::__construct(Ender::getInstance(), "enderchest", "Open EnderChest by fernanACM", ["엔더", "엔더상자", "엔"]);
         $this->setPermission("enderchest.acm");
@@ -56,7 +56,7 @@ class EnderCommand extends BaseCommand implements IRunnable{ // Implement IRunna
         }
         self::openEnderChest($sender);
         if(Ender::getInstance()->config->getNested("Settings.EnderChest-sound")){
-            PluginUtils::PlaySound($sender, Ender::getInstance()->config->getNested("Settings.EnderChest-open-soundName"), 1, 1);   
+            PluginUtils::PlaySound($sender, Ender::getInstance()->config->getNested("Settings.EnderChest-open-soundName"), 1, 1);
         }
     }
 
