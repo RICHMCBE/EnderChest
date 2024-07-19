@@ -10,3 +10,6 @@ permissions:
   enderchest.acm:
     default: op
     description: Open enderchest /ec, /ender, /enderchest
+
+virions:
+  - Muqsit/InvMenu/pm5
