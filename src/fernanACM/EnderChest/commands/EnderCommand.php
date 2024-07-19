@@ -11,11 +11,8 @@
 namespace fernanACM\EnderChest\commands;
 
 use pocketmine\player\Player;
-
 use pocketmine\utils\TextFormat;
-
 use pocketmine\command\CommandSender;
-
 use pocketmine\inventory\Inventory;
 # Lib - InvMenu
 use muqsit\invmenu\transaction\InvMenuTransactionResult;
@@ -24,11 +21,12 @@ use muqsit\invmenu\type\InvMenuTypeIds;
 use muqsit\invmenu\InvMenu;
 # Lib - Commando
 use CortexPE\Commando\BaseCommand;
+use CortexPE\Commando\IRunnable; // Add this import
 
 use fernanACM\EnderChest\Ender;
 use fernanACM\EnderChest\utils\PluginUtils;
 
-class EnderCommand extends BaseCommand{
+class EnderCommand extends BaseCommand implements IRunnable{ // Implement IRunnable
     
     public function __construct(){
         parent::__construct(Ender::getInstance(), "enderchest", "Open EnderChest by fernanACM", ["엔더", "엔더상자", "엔"]);
@@ -81,5 +79,14 @@ class EnderCommand extends BaseCommand{
             }
         });
         $menu->send($player);
+    }
+
+    /**
+     * Get the required permission for this command
+     *
+     * @return string|null
+     */
+    public function getPermission(): ?string {
+        return "enderchest.acm";
     }
 }
